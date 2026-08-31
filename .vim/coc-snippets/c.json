@@ -1,0 +1,23 @@
+{
+  "Cpp include header start": {
+    "prefix": "chs",
+    "body": [
+      "#ifdef __cplusplus",
+      "extern \"C\" {",
+      "#endif",
+      "$0"
+    ],
+    "description": "Start C++ include header block"
+  },
+  "Cpp include header end": {
+    "prefix": "che",
+    "body": [
+      "#ifdef __cplusplus",
+      "}",
+      "#endif",
+      "$0"
+    ],
+    "description": "End C++ include header block"
+  }
+}
+

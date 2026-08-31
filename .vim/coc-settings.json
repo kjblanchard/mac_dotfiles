@@ -1,0 +1,83 @@
+// autocompletion
+{
+    "list.floatPreview": false,
+    "list.insertMappings": {
+        "<C-n>": "do:previewdown",
+        "<C-p>": "do:previewup"
+    },
+    "list.normalMappings": {
+        "<C-n>": "do:previewdown",
+        "<C-p>": "do:previewup"
+    },
+    "python.analysis.indexing": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "signature.target": "float",
+    "suggest.enablePreselect": true,
+    "suggest.detailField": "abbr",
+    "suggest.maxCompleteItemCount": 50,
+    "suggest.triggerAfterInsertEnter": true,
+    "diagnostic.enable": true,
+    "diagnostic.messageTarget": "float",
+    "json.format.keepLines": true,
+    "ruff.enable": true,
+
+    "ruff.lint.args": [
+        "--line-length",
+        "320"
+    ],
+    "ruff.format.args": [
+        "--line-length",
+        "320"
+    ],
+    "python.formatting.ruffArgs": [
+        "--line-length",
+        "320"
+    ],
+    "python.formatting.provider": "ruff",
+    "diagnostic.checkCurrentLine": true,
+    "codeLens.enable": true,
+    "hover.target": "float",
+    "signature.enable": true,
+    "suggest.snippetIndicator": "",
+    "snippets.textmateSnippetsRoots": [
+        "~/.vim/coc-snippets"
+    ],
+    "clangd.arguments": [
+        "--inlay-hints=false",
+        "--compile-commands-dir=build",
+        "--compile_args_from=filesystem",
+        "--all-scopes-completion",
+        "--background-index",
+        "--clang-tidy",
+        "--cross-file-rename",
+        "--completion-parse=always",
+        "--completion-style=detailed",
+        "--function-arg-placeholders",
+        "--header-insertion-decorators",
+        "--header-insertion=never",
+        "--limit-results=0",
+        "-j=6"
+    ],
+    "suggest.noselect": false,
+    "diagnostic.virtualText": true,
+    // "clangd.arguments": [
+    //     "--inlay-hints=false"
+    // ],
+    "inlayHint.enableParameter": false,
+    "inlayHint.refreshOnInsertMode": false,
+    "snippets.ultisnips.pythonPrompt": false,
+    "languageserver": {
+        "terraform": {
+            "command": "terraform-ls",
+            "args": [
+                "serve"
+            ],
+            "filetypes": [
+                "terraform",
+                "tf"
+            ],
+            "initializationOptions": { },
+            "settings": { }
+        }
+    }
+}
