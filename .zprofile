@@ -1,8 +1,12 @@
-export PATH="$PATH:/Users/kevin.blanchard/.dotnet/tools"
-export HISTFILESIZE=1000000
-export HISTSIZE=1000000
-export EMSDK_QUIET=1
 eval "$(/opt/homebrew/bin/brew shellenv)"
-# Add Visual Studio Code (code)
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-source "/Users/kevin/git/c/emsdk/emsdk_env.sh"
+export PATH="/usr/local/bin:$PATH"
+export CLICOLOR=1
+export EDITOR='vi'
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@25/bin:$PATH"
+export PATH="$PATH:$(go env GOPATH)/bin"
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export ANDROID_NDK_HOME="$ANDROID_HOME/ndk/27.0.12077973"
+export PATH="$PATH:$ANDROID_HOME/platform-tools"
+export PATH="$PATH:$ANDROID_HOME/cmdline-tools/latest/bin"
+
