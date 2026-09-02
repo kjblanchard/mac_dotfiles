@@ -17,6 +17,7 @@ set foldlevel=100
 set termwinsize=10x0
 set splitright
 set splitbelow
+set noshowmode
 if has('termguicolors')
     set termguicolors
 endif
