@@ -37,6 +37,7 @@ nnoremap <leader>= <C-w>=
 nnoremap <silent> <leader>l :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 autocmd BufRead,BufNewFile terraform.tfvars set filetype=terraform-vars syntax=terraform
 "fzf and file opening and finding
+set rtp+=/opt/homebrew/opt/fzf "set to where it's installed
 nnoremap <leader>p :Files<CR>
 nnoremap <leader>r :Rg<CR>
 let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
