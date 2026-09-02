@@ -21,15 +21,10 @@ set noshowmode
 if has('termguicolors')
     set termguicolors
 endif
-colorscheme molokai
-"statusline and tabline for flagship
-set statusline=\ %{mode()}\ %f%=%l:%c
-function! TabFiles(tabnr) abort
-    return join(map(tabpagebuflist(a:tabnr),
-                \ 'empty(bufname(v:val)) ? "[No Name]" : fnamemodify(bufname(v:val), ":t")'),
-                \ '│')
-endfunction
-let g:tablabel = "%N%{flagship#tabmodified()} %{TabFiles(v:lnum)}"
+colorscheme onedark
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ }
 let mapleader = "\<Space>"
 "Keybinds
 noremap <Space> <Nop>
