@@ -15,15 +15,16 @@ set foldopen-=search
 set foldmethod=indent
 set foldlevel=100
 set termwinsize=10x0
-set splitright
-set splitbelow
 set noshowmode
 if has('termguicolors')
     set termguicolors
 endif
-colorscheme onedark
-let g:lightline = {
-      \ 'colorscheme': 'one',
+" colorscheme onedark
+let g:rehash256 = 1
+let g:molokai_original = 1
+colorscheme molokai
+let g:lightline = { 
+      \ 'colorscheme': 'molokai',
       \ }
 let mapleader = "\<Space>"
 "Keybinds

@@ -1,10 +1,7 @@
 keybind = shift+ctrl+v=paste_from_clipboard
-font-size = 12
-background = #1e1e1e
-foreground = #d4d4d4
+font-family = JetBrains Mono
+theme = Molokai
 cursor-style = block
-window-padding-x = 10
-window-padding-y = 10
 scrollback-limit = 10000
 # This is the configuration file for Ghostty.
 #
