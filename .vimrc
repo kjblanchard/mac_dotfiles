@@ -46,3 +46,6 @@ let $FZF_DEFAULT_OPTS="--preview-window 'right:57%' --preview 'bat --color=alway
             \shift-up:preview-top,shift-down:preview-bottom,
             \alt-up:half-page-up,alt-down:half-page-down"
 source ~/.vim/coc_config.vim
+"cursor changes in insert
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"

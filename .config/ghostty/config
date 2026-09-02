@@ -1,15 +1,10 @@
 keybind = shift+ctrl+v=paste_from_clipboard
 font-family = JetBrains Mono
 theme = Molokai
-cursor-style = block
 scrollback-limit = 10000
-# This is the configuration file for Ghostty.
-#
-# This template file has been automatically created at the following
-# path since Ghostty couldn't find any existing config files on your system:
-#
-#   /Users/redx/Library/Application Support/com.mitchellh.ghostty/config
-#
+cursor-style = block
+cursor-style-blink = true
+shell-integration = zsh
 # The template does not set any default options, since Ghostty ships
 # with sensible defaults for all options. Users should only need to set
 # options that they want to change from the default.
