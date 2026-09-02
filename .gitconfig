@@ -1,0 +1,16 @@
+[user]
+	email = kevin@supergoon.com
+	name = Kevin Blanchard
+[alias]
+	br = branch
+	a = add
+	st = status
+	co = checkout
+	c = commit
+	l = log
+	dotfiles = !git --git-dir=\"$HOME/dotfiles/.git\" --work-tree=\"$HOME\"
+
+[mergetool]
+	keepBackup = false
+[pull]
+	ff = only
