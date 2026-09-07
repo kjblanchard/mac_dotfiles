@@ -2,9 +2,12 @@ keybind = shift+ctrl+v=paste_from_clipboard
 font-family = JetBrains Mono
 theme = Molokai
 scrollback-limit = 10000
-cursor-style = block
-cursor-style-blink = true
 shell-integration = zsh
+font-size = 13
+window-padding-x = 5
+window-padding-y = 5
+confirm-close-surface = false
+clipboard-trim-trailing-spaces = true
 # The template does not set any default options, since Ghostty ships
 # with sensible defaults for all options. Users should only need to set
 # options that they want to change from the default.

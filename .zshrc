@@ -2,8 +2,10 @@ alias nucbuntu="ssh kevin@10.0.10.194" # wired
 alias skywalker="ssh root@10.0.10.1"    # OpenWrt
 alias spiderman="ssh root@10.0.10.186"  # OpenMediaVault
 alias pdb='python -m pdb'
-alias cat='bat'
 alias ls='ls -G'
+alias lg='lazygit'
+alias ss='tty-clock -ScBtC5'
+alias sfm='mpv https://ice5.somafm.com/groovesalad-128-aac'
 HISTSIZE=1000000
 SAVEHIST=1000000
 # Allow better history between tmux panes/windows

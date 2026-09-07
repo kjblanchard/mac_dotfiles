@@ -1,51 +1,50 @@
 set backspace=indent,eol,start
-set number
-set mouse=a
-set splitright
-set splitbelow
-set ignorecase
-set smartcase
-set hlsearch
-set showmatch
-set matchtime=2
-set ttymouse=sgr
-set foldopen-=hor
-set foldopen-=block
-set foldopen-=search
-set foldmethod=indent
-set foldlevel=100
+set number ruler wildmenu
+syntax on
+set mouse=a ttymouse=sgr
+set splitright splitbelow autoread hidden
+set display+=lastline display+=truncate
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+set formatoptions+=j
+set ignorecase smartcase hlsearch showmatch matchtime=2 incsearch
+set foldopen-=hor foldopen-=block foldopen-=search foldmethod=indent foldlevel=100
+set scrolloff=1 sidescroll=1 sidescrolloff=2
+set noshowmode "hide insert showing in the help window
+set autoindent expandtab tabstop=1 shiftwidth=1 laststatus=2
+set complete-=i smarttab
+set ttimeout ttimeoutlen=100
 set termwinsize=10x0
-set noshowmode
 if has('termguicolors')
-    set termguicolors
+set termguicolors
 endif
-" colorscheme onedark
-let g:rehash256 = 1
+"Colors
 let g:molokai_original = 1
+set background=dark
 colorscheme molokai
-let g:lightline = { 
-      \ 'colorscheme': 'molokai',
-      \ }
+"Binds
 let mapleader = "\<Space>"
-"Keybinds
 noremap <Space> <Nop>
-nmap <F4> :wall<CR>:bufdo bd<CR>:Ex<CR>
+nmap <F4> :wall<CR>:bufdo bd<CR>:Ex<CR> "close all with f4
 nnoremap <leader>= <C-w>=
 nnoremap <silent> <leader>l :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 autocmd BufRead,BufNewFile terraform.tfvars set filetype=terraform-vars syntax=terraform
-"fzf and file opening and finding
+"Plugins
+let g:rainbow_active = 1
+let g:popup_scrollbar_auto = 1
+let g:airline_theme='molokai'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number, 2 is buffers, 3 is both
+let g:airline#extensions#tabline#show_buffers = 0 
+source ~/.vim/coc_config.vim "COC gives ide config stuff, and its quite long
+""fzf and file opening and finding
 set rtp+=/opt/homebrew/opt/fzf "set to where it's installed
 nnoremap <leader>p :Files<CR>
 nnoremap <leader>r :Rg<CR>
 let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
-"Scroll fzf windows windows properly
-let $FZF_DEFAULT_OPTS="--preview-window 'right:57%' --preview 'bat --color=always  --style=numbers --line-range :300 {}'
-            \ --bind ctrl-y:preview-up,ctrl-e:preview-down,
-            \ctrl-b:preview-page-up,ctrl-f:preview-page-down,
-            \ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down,
-            \shift-up:preview-top,shift-down:preview-bottom,
-            \alt-up:half-page-up,alt-down:half-page-down"
-source ~/.vim/coc_config.vim
-"cursor changes in insert
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
+let $FZF_DEFAULT_OPTS="--preview 'bat --color=always --theme=Monokai Extended --paging=never --style=numbers --line-range :150 {}' --preview-window 'right:57%'
+\ --bind ctrl-y:preview-up,ctrl-e:preview-down,
+  \ctrl-b:preview-page-up,ctrl-f:preview-page-down,
+  \ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down,
+  \shift-up:preview-top,shift-down:preview-bottom,
+  \alt-up:half-page-up,alt-down:half-page-down"
+  "Scroll fzf windows windows properly

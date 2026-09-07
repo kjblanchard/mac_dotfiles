@@ -1,44 +1,45 @@
-nmap <F2> <Plug>(coc-rename)
-nnoremap <silent> <F8> :call CocActionAsync('jumpReferences')<CR>
-nnoremap <leader>o :CocList outline<CR>
-nnoremap <leader>f :call CocAction('format')<CR>
-vnoremap <leader>f :call CocAction('format')<CR>
+"when in insert mode, pressing ctrl+n will bring back up the coc autocomplete.
+inoremap <silent><expr> <C-o> coc#refresh()
+nmap <leader>e <Cmd>CocCommand explorer<CR>
+nnoremap <leader>sh :vsplit \| CocCommand clangd.switchSourceHeader<CR>
+nnoremap <leader>O :CocOutline<CR>
 nnoremap <leader>f :call FormatFallback()<CR>
 vnoremap <leader>f :call FormatFallback()<CR>
+nnoremap <leader>o :CocList outline<CR>
+nnoremap <silent> <leader>gr :CocList references<CR>
+nmap <F2> <Plug>(coc-rename)
+nnoremap <silent> <F8> :call CocActionAsync('jumpReferences')<CR>
 nnoremap <silent> <F12> :call CocActionAsync('jumpDefinition')<CR>
-nnoremap <silent> <leader>d :call CocActionAsync('jumpDeclaration')<CR>
+nnoremap <silent> <F11> :call CocActionAsync('jumpDeclaration')<CR>
 smap <silent><expr> <TAB> coc#rpc#request('doKeymap', ['snippets-expand-jump',''])
 nnoremap <silent> <leader>[ <Plug>(coc-diagnostic-prev)
 nnoremap <silent> <leader>] <Plug>(coc-diagnostic-next)
 nnoremap <silent> <leader>a <Plug>(coc-codeaction)
-nnoremap <silent> <leader>gqf <Plug>(coc-fix-current)
-nnoremap <silent> <leader>rr <Plug>(coc-refactor)
-nnoremap <silent> <leader>gr :CocList references<CR>
-" GoTo code navigation
-nmap <silent><nowait> gd <Plug>(coc-definition)
-nmap <silent><nowait> gy <Plug>(coc-type-definition)
-nmap <silent><nowait> gi <Plug>(coc-implementation)
-nmap <silent><nowait> gr <Plug>(coc-references)
-
+autocmd FileType c,cpp,h,hpp setlocal commentstring=//\ %s
+autocmd FileType go setlocal commentstring=//\ %s
+autocmd FileType python setlocal commentstring=#\ %s
+autocmd FileType terraform setlocal commentstring=#\ %s
+autocmd FileType vim setlocal commentstring=\"\ %s
+nmap <leader>ca  <Plug>(coc-codeaction-cursor)
 "format using COC if we have a formatter, otherwise use the built in
-"formatting for the file.
 function! FormatFallback()
-  if !has('nvim') && CocAction('hasProvider', 'format')
-    " Use coc.nvim formatter
-    call CocAction('format')
-    echo "COC format"
-  else
-    " Fallback to Vim's built-in formatting for the whole buffer
-    let b:PlugView = winsaveview()
-    normal! gg=G
-    call winrestview(b:PlugView)
-    " Fallback to Vim's built-in formatting for the whole buffer
-    :redraw
-    :echo "Used Vim fallback formatter"
-  endif
+	if !has('nvim') && CocAction('hasProvider', 'format')
+		" Use coc.nvim formatter
+		call CocAction('format')
+		echo "COC format"
+	else
+		" Fallback to Vim's built-in formatting for the whole buffer
+		let b:PlugView = winsaveview()
+		normal! gg=G
+		call winrestview(b:PlugView)
+		" Fallback to Vim's built-in formatting for the whole buffer
+		:redraw
+		:echo "Used Vim fallback formatter"
+	endif
 endfunction
-
-
+"From the example configuration on github below here.
+"
+"
 " https://raw.githubusercontent.com/neoclide/coc.nvim/master/doc/coc-example-config.vim
 " May need for Vim (not Neovim) since coc.nvim calculates byte offset by count
 " utf-8 byte sequence
@@ -58,61 +59,29 @@ set signcolumn=yes
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config
 inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ coc#pum#visible() ? coc#pum#confirm() :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-
 " Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
-
 function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
+	if CocAction('hasProvider', 'hover')
+		call CocActionAsync('doHover')
+	else
+		call feedkeys('K', 'in')
+	endif
 endfunction
-
 " Highlight the symbol and its references when holding the cursor
 autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming
-nmap <leader>rn <Plug>(coc-rename)
-
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s)
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+	autocmd!
+	" Setup formatexpr specified filetype(s)
+	autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
 augroup end
-
-" Applying code actions to the selected code block
-" Example: `<leader>aap` for current paragraph
-" xmap <leader>a  <Plug>(coc-codeaction-selected)
-" nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying code actions at the cursor position
-nmap <leader>ca  <Plug>(coc-codeaction-cursor)
-" Remap keys for apply code actions affect whole buffer
-nmap <leader>as  <Plug>(coc-codeaction-source)
-" Apply the most preferred quickfix action to fix diagnostic on the current line
-nmap <leader>qf  <Plug>(coc-fix-current)
-
-
-" Run the Code Lens action on the current line
-nmap <leader>cl  <Plug>(coc-codelens-action)
-
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server
 xmap if <Plug>(coc-funcobj-i)
@@ -123,42 +92,30 @@ xmap ic <Plug>(coc-classobj-i)
 omap ic <Plug>(coc-classobj-i)
 xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
-
 " Remap <C-f> and <C-b> to scroll float windows/popups
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+	nnoremap <silent><nowait><expr> <C-n> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-n>"
+	nnoremap <silent><nowait><expr> <C-p> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-p>"
+	inoremap <silent><nowait><expr> <C-n> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+	inoremap <silent><nowait><expr> <C-p> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+	vnoremap <silent><nowait><expr> <C-n> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-n>"
+	vnoremap <silent><nowait><expr> <C-p> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-p>"
 endif
-
 " Use CTRL-S for selections ranges
 " Requires 'textDocument/selectionRange' support of language server
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
-
 " Add `:Format` command to format current buffer
 command! -nargs=0 Format :call CocActionAsync('format')
-
 " Add `:Fold` command to fold current buffer
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
 " Add `:OR` command for organize imports of the current buffer
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
 
-" Add (Neo)Vim's native statusline support
-" NOTE: Please see `:h coc-status` for integrations with external plugins that
-" provide custom statusline: lightline.vim, vim-airline
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-nnoremap <leader>sh :vsplit \| CocCommand clangd.switchSourceHeader<CR>
-
-"when in insert mode, pressing ctrl+n will bring back up the coc autocomplete.
-inoremap <silent><expr> <C-o> coc#refresh()
 
 
+
+"Old stuff, and from the example config that is not used
 " Mappings for CoCList
 " Show all diagnostics
 " nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
@@ -197,3 +154,39 @@ inoremap <silent><expr> <C-o> coc#refresh()
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list
 " nmap <silent><nowait> [g <Plug>(coc-diagnostic-prev)
 " nmap <silent><nowait> ]g <Plug>(coc-diagnostic-next)
+" nmap <silent><nowait> gd <Plug>(coc-definition)
+" nmap <silent><nowait> gy <Plug>(coc-type-definition)
+" nmap <silent><nowait> gi <Plug>(coc-implementation)
+" nmap <silent><nowait> gr <Plug>(coc-references)
+" Remap keys for apply code actions affect whole buffer
+" nmap <leader>as  <Plug>(coc-codeaction-source)
+" " Apply the most preferred quickfix action to fix diagnostic on the current line
+" nmap <leader>qf  <Plug>(coc-fix-current)
+"inoremap <silent><expr> <S-TAB>
+"      \ coc#pum#visible() ? coc#pum#prev(1) :
+"      \ "\<C-h>"
+"
+"inoremap <silent><expr> <TAB>
+"			\ coc#pum#visible() ? coc#pum#next(1) :
+"			\ CheckBackspace() ? "\<Tab>" :
+"			\ coc#refresh()
+"inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice
+"inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+"			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+" nnoremap <leader>f :call CocAction('format')<CR>
+" vnoremap <leader>f :call CocAction('format')<CR>
+" Applying code actions to the selected code block
+" Example: `<leader>aap` for current paragraph
+" xmap <leader>a  <Plug>(coc-codeaction-selected)
+" nmap <leader>a  <Plug>(coc-codeaction-selected)
+" Run the Code Lens action on the current line
+" nmap <leader>cl  <Plug>(coc-codelens-action)
+" Add (Neo)Vim's native statusline support
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" nnoremap <silent> <leader>gqf <Plug>(coc-fix-current)
+" nnoremap <silent> <leader>rr <Plug>(coc-refactor)
