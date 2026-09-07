@@ -13,7 +13,6 @@
  "suggest.enablePreview": true,
  "suggest.floatEnable": true,
  "suggest.selection": "none",
- "suggest.autoTrigger": "trigger",
  "suggest.preferCompleteThanJumpPlaceholder": false,
  "suggest.enablePreselect": false,
  "suggest.detailField": "abbr",
@@ -34,19 +33,7 @@
  "diagnostic.messageTarget": "float",
  "json.format.keepLines": true,
  "ruff.enable": true,
-
- "ruff.lint.args": [
-  "--line-length",
-  "320"
- ],
- "ruff.format.args": [
-  "--line-length",
-  "320"
- ],
- "python.formatting.ruffArgs": [
-  "--line-length",
-  "320"
- ],
+ "ruff.lineLength": 320,
  "python.formatting.provider": "ruff",
  "codeLens.enable": true,
  "hover.target": "float",
