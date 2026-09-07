@@ -21,9 +21,10 @@ nnoremap <silent> <F12> :call CocActionAsync('jumpDefinition')<CR>
 nnoremap <silent> <F11> :call CocActionAsync('jumpDeclaration')<CR>
 "Tab key autocompletes, and also jumps to next snippet placeholder
 inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#select_confirm() :
+      \ coc#pum#visible() && coc#pum#info()['index'] >= 0 ? coc#pum#confirm() :
       \ coc#expandableOrJumpable() ?
-      \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ (coc#pum#visible() ? coc#pum#cancel() : '') . "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ coc#pum#visible() ? coc#pum#cancel() :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 let g:coc_snippet_next = '<TAB>'
