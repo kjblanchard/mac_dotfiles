@@ -1,109 +1,120 @@
 // autocompletion
 {
-  "list.insertMappings": {
-    "<C-n>": "do:previewdown",
-    "<C-p>": "do:previewup"
-  },
-  "list.normalMappings": {
-    "<C-n>": "do:previewdown",
-    "<C-p>": "do:previewup"
-  },
-  "suggest.floatConfig": {
-    "border": true,
-    "rounded": true
-  },
-  "outline.checkBufferSwitch": false,
-  "outline.keepWindow": false,
-  "outline.expandLevel": 0,
-  "suggest.enablePreview": true,
-  "suggest.floatEnable": true,
-  "python.analysis.indexing": true,
-  "python.analysis.typeCheckingMode": "basic",
-  "signature.target": "float",
-  "suggest.enablePreselect": true,
-  "suggest.detailField": "abbr",
-  "suggest.maxCompleteItemCount": 50,
-  "suggest.triggerAfterInsertEnter": true,
-  "diagnostic.enable": true,
-  "diagnostic.messageTarget": "float",
-  "json.format.keepLines": true,
-  "ruff.enable": true,
+ "list.insertMappings": {
+  "<C-n>": "do:previewdown",
+  "<C-p>": "do:previewup"
+ },
+ "list.normalMappings": {
+  "<C-n>": "do:previewdown",
+  "<C-p>": "do:previewup"
+ },
+ "outline.expandLevel": 0,
+ "outline.previewBorderRounded": true,
+ "suggest.enablePreview": true,
+ "suggest.floatEnable": true,
+ "suggest.selection": "none",
+ "suggest.autoTrigger": "trigger",
+ "suggest.preferCompleteThanJumpPlaceholder": false,
+ "suggest.enablePreselect": false,
+ "suggest.detailField": "abbr",
+ "suggest.triggerAfterInsertEnter": true,
+ "suggest.triggerCompletionWait": 50,
+ "suggest.maxCompleteItemCount": 50,
+ "suggest.noselect": true,
+ "suggest.localityBonus": true,
+ "suggest.snippetIndicator": "►",
+ "suggest.floatConfig": {
+  "border": true,
+  "rounded": true
+ },
+ "python.analysis.indexing": true,
+ "python.analysis.typeCheckingMode": "basic",
+ "signature.target": "float",
+ "diagnostic.enable": true,
+ "diagnostic.messageTarget": "float",
+ "json.format.keepLines": true,
+ "ruff.enable": true,
 
-  "ruff.lint.args": [
-    "--line-length",
-    "320"
-  ],
-  "ruff.format.args": [
-    "--line-length",
-    "320"
-  ],
-  "python.formatting.ruffArgs": [
-    "--line-length",
-    "320"
-  ],
-  "python.formatting.provider": "ruff",
-  "diagnostic.checkCurrentLine": true,
-  "codeLens.enable": true,
-  "hover.target": "float",
-  "signature.enable": true,
-  "suggest.snippetIndicator": "",
-  "snippets.textmateSnippetsRoots": [
-    "~/.vim/coc-snippets"
-  ],
-  "clangd.arguments": [
-    "--inlay-hints=false",
-    "--compile-commands-dir=build",
-    "--compile_args_from=filesystem",
-    "--all-scopes-completion",
-    "--background-index",
-    "--clang-tidy",
-    "--cross-file-rename",
-    "--completion-parse=always",
-    "--completion-style=detailed",
-    "--function-arg-placeholders",
-    "--header-insertion-decorators",
-    "--header-insertion=never",
-    "--limit-results=0",
-    "-j=6"
-  ],
-  "suggest.noselect": false,
-  "diagnostic.virtualText": true,
-  "inlayHint.enableParameter": false,
-  "inlayHint.refreshOnInsertMode": false,
-  "snippets.ultisnips.pythonPrompt": false,
-  "explorer.width": 30,
-  "explorer.buffer.root.template": "[icon & 1] OPEN EDITORS",
-  "explorer.file.root.template": "[icon & 1] PROJECT ([root])",
-  "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
-  "explorer.file.showHiddenFiles": true,
-  "explorer.file.autoReveal": false,
-  "explorer.icon.enableVimDevicons": true,
-  "explorer.icon.enableNerdfont": true,
-  "explorer.previewAction.onHover": false,
-  "explorer.file.reveal.auto": true,
-  "explorer.keyMappings": {
-    "x": "open:vsplit",
-    "mm": "rename",
-    "mc": "copyFile",
-    "C": "copyFile",
-    "md": "delete",
-    "D": "delete",
-    "ma": "addFile",
-    "mA": "addDirectory"
-  },
-  "languageserver": {
-    "terraform": {
-      "command": "terraform-ls",
-      "args": [
-        "serve"
-      ],
-      "filetypes": [
-        "terraform",
-        "tf",
-        "terraform-vars"
-      ],
-      "initializationOptions": { },
-      "settings": { }
-    }
+ "ruff.lint.args": [
+  "--line-length",
+  "320"
+ ],
+ "ruff.format.args": [
+  "--line-length",
+  "320"
+ ],
+ "python.formatting.ruffArgs": [
+  "--line-length",
+  "320"
+ ],
+ "python.formatting.provider": "ruff",
+ "codeLens.enable": true,
+ "hover.target": "float",
+ "snippets.textmateSnippetsRoots": [
+  "~/.vim/coc-snippets"
+ ],
+ "clangd.arguments": [
+  "--inlay-hints=false",
+  "--compile-commands-dir=build",
+  "--compile_args_from=filesystem",
+  "--all-scopes-completion",
+  "--background-index",
+  "--clang-tidy",
+  "--cross-file-rename",
+  "--completion-parse=always",
+  "--completion-style=detailed",
+  "--function-arg-placeholders",
+  "--header-insertion-decorators",
+  "--header-insertion=never",
+  "--limit-results=0",
+  "-j=6"
+ ],
+ "inlayHint.refreshOnInsertMode": false,
+ "snippets.ultisnips.pythonPrompt": false,
+ "explorer.width": 30,
+ "explorer.buffer.root.template": "[icon & 1] OPEN EDITORS",
+ "explorer.file.root.template": "[icon & 1] PROJECT ([root])",
+ "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
+ "explorer.file.showHiddenFiles": true,
+ "explorer.file.autoReveal": false,
+ "explorer.icon.enableVimDevicons": true,
+ "explorer.icon.enableNerdfont": true,
+ "explorer.previewAction.onHover": false,
+ "explorer.file.reveal.auto": true,
+ "diagnostic.virtualText": true,
+ "diagnostic.checkCurrentLine": true,
+ "inlayHint.enable": true,
+ "inlayHint.enableParameter": true,
+ "signature.enable": true,
+ "outline.autoPreview": true,
+ "coc.preferences.bracketEnterImprove": true,
+ "notification.statusLineProgress": true,
+ "notification.disabledProgressSources": [
+  "*"
+ ],
+ "explorer.keyMappings": {
+  "x": "open:vsplit",
+  "mm": "rename",
+  "mc": "copyFile",
+  "C": "copyFile",
+  "md": "delete",
+  "D": "delete",
+  "ma": "addFile",
+  "mA": "addDirectory"
+ },
+ "languageserver": {
+  "terraform": {
+   "command": "terraform-ls",
+   "args": [
+    "serve"
+   ],
+   "filetypes": [
+    "terraform",
+    "tf",
+    "terraform-vars"
+   ],
+   "initializationOptions": { },
+   "settings": { }
   }
+ }
 }
