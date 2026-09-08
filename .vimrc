@@ -14,6 +14,7 @@ set autoindent expandtab tabstop=1 shiftwidth=1 laststatus=2
 set complete-=i smarttab
 set ttimeout ttimeoutlen=100
 set termwinsize=10x0
+set shortmess+=cTF
 if has('termguicolors')
 set termguicolors
 endif
