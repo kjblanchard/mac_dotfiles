@@ -3,7 +3,7 @@ set nowritebackup
 set updatetime=300
 set signcolumn=yes
 set laststatus=2
-let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-go', 'coc-clangd', 'coc-snippets','coc-pairs','coc-yaml','coc-sh','coc-cmake','coc-markdownlint', 'coc-highlight']
+let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-go', 'coc-clangd', 'coc-snippets','coc-pairs','coc-yaml','coc-sh','coc-cmake','coc-markdownlint', 'coc-highlight', 'coc-explorer']
 " Show coc.nvim status, including extension installation progress
 set statusline^=%{coc#status()}
  "when in insert mode, pressing ctrl+n will bring back up the coc autocomplete.
