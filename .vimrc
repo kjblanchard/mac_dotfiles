@@ -16,7 +16,7 @@ set ttimeout ttimeoutlen=100
 set termwinsize=10x0
 set shortmess+=cTF
 if has('termguicolors')
-set termguicolors
+ set termguicolors
 endif
 "Colors
 let g:molokai_original = 1
@@ -36,6 +36,12 @@ let g:airline_theme='molokai'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number, 2 is buffers, 3 is both
 let g:airline#extensions#tabline#show_buffers = 0 
+"mergetool
+if &diff
+ map <leader>1 :diffget LOCAL<CR>
+ map <leader>2 :diffget BASE<CR>
+ map <leader>3 :diffget REMOTE<CR>
+endif
 source ~/.vim/coc_config.vim "COC gives ide config stuff, and its quite long
 ""fzf and file opening and finding
 set rtp+=/opt/homebrew/opt/fzf "set to where it's installed
@@ -44,8 +50,8 @@ nnoremap <leader>r :Rg<CR>
 let $FZF_DEFAULT_COMMAND = 'fd --type f --hidden --follow --exclude .git'
 let $FZF_DEFAULT_OPTS="--preview 'bat --color=always --theme=Monokai Extended --paging=never --style=numbers --line-range :150 {}' --preview-window 'right:57%'
 \ --bind ctrl-y:preview-up,ctrl-e:preview-down,
-  \ctrl-b:preview-page-up,ctrl-f:preview-page-down,
-  \ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down,
-  \shift-up:preview-top,shift-down:preview-bottom,
-  \alt-up:half-page-up,alt-down:half-page-down"
-  "Scroll fzf windows windows properly
+ \ctrl-b:preview-page-up,ctrl-f:preview-page-down,
+ \ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down,
+ \shift-up:preview-top,shift-down:preview-bottom,
+ \alt-up:half-page-up,alt-down:half-page-down"
+ "Scroll fzf windows windows properly
