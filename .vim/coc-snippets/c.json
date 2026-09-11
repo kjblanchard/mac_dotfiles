@@ -9,6 +9,7 @@
     ],
     "description": "Start C++ include header block"
   },
+
   "Cpp include header end": {
     "prefix": "che",
     "body": [
@@ -18,6 +19,24 @@
       "$0"
     ],
     "description": "End C++ include header block"
+  },
+
+  "C/C++ file header": {
+    "prefix": "fileheader",
+    "body": [
+      "/**",
+      " * @file ${1:${VIM:expand('%:t')}}",
+      " * @author ${2:Kevin B} (${3:kevin@supergoon.com})",
+      " * @brief ${4:Creating Textures and Drawing functions}",
+      " * @version ${5:0.1}",
+      " * @date ${6:${VIM:strftime('%Y-%m-%d')}}",
+      " *",
+      " * @copyright Copyright (c) ${7:${VIM:strftime('%Y')}}",
+      " *",
+      " */",
+      "$0"
+    ],
+    "description": "C/C++ file header"
   }
 }
 

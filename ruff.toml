@@ -1,0 +1,31 @@
+target-version = "py312"
+line-length = 90
+indent-width = 4
+src = ["src"]
+
+[lint]
+select = [
+    "E",      # pycodestyle errors
+    "F",      # Pyflakes
+    "I",      # isort
+    "UP",     # pyupgrade
+    "B",      # flake8-bugbear
+    "SIM",    # flake8-simplify
+    "C4",     # flake8-comprehensions
+    "PIE",    # flake8-pie
+    "RUF",    # Ruff-specific
+    "A",      # flake8-builtins
+    "ERA",    # eradicate
+]
+
+ignore = [
+    "E501",    # handled by formatter
+]
+
+fixable = ["ALL"]
+
+[format]
+line-ending = "lf"
+quote-style = "double"
+indent-style = "space"
+

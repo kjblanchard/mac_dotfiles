@@ -1,0 +1,7 @@
+---
+Checks: >
+  clang-diagnostic-*,
+  clang-analyzer-*,
+  bugprone-*,
+  misc-*,
+HeaderFilterRegex: ""

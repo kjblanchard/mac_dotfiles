@@ -10,7 +10,7 @@ set ignorecase smartcase hlsearch showmatch matchtime=2 incsearch
 set foldopen-=hor foldopen-=block foldopen-=search foldmethod=indent foldlevel=100
 set scrolloff=1 sidescroll=1 sidescrolloff=2
 set noshowmode "hide insert showing in the help window
-set autoindent expandtab tabstop=1 shiftwidth=1 laststatus=2
+set autoindent expandtab tabstop=2 shiftwidth=2 laststatus=2
 set complete-=i smarttab
 set ttimeout ttimeoutlen=100
 set termwinsize=10x0
@@ -41,7 +41,7 @@ hi CocHintSign     guifg=#AE81FF
 "Binds
 let mapleader = "\<Space>"
 noremap <Space> <Nop>
-nmap <F4> :wall<CR>:bufdo bd<CR>:Ex<CR> "close all with f4
+nmap <F4> :wall<CR>:bufdo bd<CR>:Ex<CR>
 nnoremap <leader>= <C-w>=
 nnoremap <silent> <leader>l :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 autocmd BufRead,BufNewFile terraform.tfvars set filetype=terraform-vars syntax=terraform

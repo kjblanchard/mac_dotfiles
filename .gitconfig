@@ -17,7 +17,43 @@ keepBackup = false
 rebase = false
 [core]
 editor = vim
+whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+excludesfile = ~/.gitignore
+pager = delta --side-by-side --width ${FZF_PREVIEW_COLUMNS:-$COLUMNS}
+autocrlf = input
 [merge]
+prompt = false
+keepBackup = false
+keepTemporaries = false
 tool = vimdiff
 [credential]
 helper = osxkeychain
+[status]
+relativePaths = true
+[interactive]
+diffFilter = delta --color-only
+[commit]
+verbose = true
+[web]
+browser = firefox
+[push]
+default = current
+autoSetupRemote = true
+
+[status]
+relativePaths = true
+
+[interactive]
+diffFilter = delta --color-only
+
+[commit]
+verbose = true
+
+[web]
+browser = firefox
+
+[push]
+default = current
+autoSetupRemote = true
+
+

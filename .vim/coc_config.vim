@@ -3,18 +3,18 @@ set nowritebackup
 set updatetime=300
 set signcolumn=yes
 set laststatus=2
-let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-go', 'coc-clangd', 'coc-snippets','coc-pairs','coc-yaml','coc-sh','coc-cmake','coc-markdownlint', 'coc-highlight', 'coc-explorer']
+let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-go', 'coc-clangd', 'coc-snippets','coc-pairs','coc-yaml','coc-markdownlint', 'coc-explorer', 'coc-sumneko-lua']
 " Show coc.nvim status, including extension installation progress
 set statusline^=%{coc#status()}
  "when in insert mode, pressing ctrl+n will bring back up the coc autocomplete.
 inoremap <silent><expr> <C-o> coc#refresh()
- nmap <leader>e <Cmd>CocCommand explorer<CR>
- nnoremap <leader>sh :vsplit \| CocCommand clangd.switchSourceHeader<CR>
- nnoremap <leader>O :CocOutline<CR>
- nnoremap <leader>f :call FormatFallback()<CR>
- vnoremap <leader>f :call FormatFallback()<CR>
- nnoremap <leader>o :CocList outline<CR>
- nnoremap <silent> <leader>gr :CocList references<CR>
+nmap <leader>e <Cmd>CocCommand explorer<CR>
+nnoremap <leader>sh :vsplit \| CocCommand clangd.switchSourceHeader<CR>
+nnoremap <leader>O :CocOutline<CR>
+nnoremap <leader>f :call FormatFallback()<CR>
+vnoremap <leader>f :call FormatFallback()<CR>
+nnoremap <leader>o :CocList outline<CR>
+nnoremap <silent> <leader>gr :CocList references<CR>
 nmap <F2> <Plug>(coc-rename)
  nnoremap <silent> <F8> :call CocActionAsync('jumpReferences')<CR>
  nnoremap <silent> <F12> :call CocActionAsync('jumpDefinition')<CR>
@@ -33,7 +33,7 @@ nmap <F2> <Plug>(coc-rename)
 nnoremap <silent> <leader>a <Plug>(coc-codeaction)
  autocmd FileType c,cpp,h,hpp setlocal commentstring=//\ %s
  autocmd FileType go setlocal commentstring=//\ %s
- autocmd FileType python setlocal commentstring=#\ %s
+ autocmd FileType python,cmake setlocal commentstring=#\ %s
  autocmd FileType terraform setlocal commentstring=#\ %s
  autocmd FileType vim setlocal commentstring=\"\ %s
 nmap <leader>ca  <Plug>(coc-codeaction-cursor)
