@@ -16,9 +16,9 @@
  "suggest.preferCompleteThanJumpPlaceholder": false,
  "suggest.enablePreselect": false,
  "suggest.detailField": "abbr",
- "suggest.triggerAfterInsertEnter": true,
- "suggest.triggerCompletionWait": 50,
- "suggest.maxCompleteItemCount": 50,
+ "suggest.triggerAfterInsertEnter": false,
+ "suggest.triggerCompletionWait": 150,
+ "suggest.maxCompleteItemCount": 15,
  "suggest.noselect": true,
  "suggest.localityBonus": true,
  "suggest.snippetIndicator": "►",
@@ -35,8 +35,9 @@
  "ruff.enable": true,
  "ruff.lineLength": 320,
  "python.formatting.provider": "ruff",
- "codeLens.enable": true,
+ "codeLens.enable": false,
  "hover.target": "float",
+ "Lua.completion.callSnippet": "Replace",
  "snippets.textmateSnippetsRoots": [
   "~/.vim/coc-snippets"
  ],

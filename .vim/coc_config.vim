@@ -60,6 +60,7 @@ call winrestview(b:PlugView)
  endfunction
  " Use K to show documentation in preview window
  nnoremap <silent> K :call ShowDocumentation()<CR>
+ nnoremap <silent> <Esc> :call coc#float#close_all()<CR>
 function! ShowDocumentation()
  if CocAction('hasProvider', 'hover')
  call CocActionAsync('doHover')
