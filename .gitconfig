@@ -11,6 +11,11 @@ l = log
 last = log --oneline | head
 dotfiles = !git --git-dir=\"$HOME/dotfiles/.git\" --work-tree=\"$HOME\"
 
+
+[delta]
+navigate = true  # use n and N to move between diff sections
+dark = true      # or light = true, or omit for auto-detection
+
 [mergetool]
 keepBackup = false
 [pull]
@@ -19,7 +24,7 @@ rebase = false
 editor = vim
 whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 excludesfile = ~/.gitignore
-pager = delta --side-by-side --width ${FZF_PREVIEW_COLUMNS:-$COLUMNS}
+pager = delta 
 autocrlf = input
 [merge]
 prompt = false
@@ -32,8 +37,6 @@ helper = osxkeychain
 relativePaths = true
 [interactive]
 diffFilter = delta --color-only
-[commit]
-verbose = true
 [web]
 browser = firefox
 [push]
@@ -45,9 +48,6 @@ relativePaths = true
 
 [interactive]
 diffFilter = delta --color-only
-
-[commit]
-verbose = true
 
 [web]
 browser = firefox

@@ -52,3 +52,6 @@
 [submodule ".vim/pack/plugins/start/vim-rainbow"]
 	path = .vim/pack/plugins/start/vim-rainbow
 	url = https://github.com/frazrepo/vim-rainbow.git
+[submodule "/Users/kevin/.vim/pack/plugins/start/DoxygenToolkit.vim"]
+	path = /Users/kevin/.vim/pack/plugins/start/DoxygenToolkit.vim
+	url = https://github.com/vim-scripts/DoxygenToolkit.vim.git

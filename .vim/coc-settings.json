@@ -1,107 +1,137 @@
 // autocompletion
 {
- "list.insertMappings": {
-  "<C-n>": "do:previewdown",
-  "<C-p>": "do:previewup"
- },
- "list.normalMappings": {
-  "<C-n>": "do:previewdown",
-  "<C-p>": "do:previewup"
- },
- "outline.expandLevel": 0,
- "outline.previewBorderRounded": true,
- "suggest.enablePreview": true,
- "suggest.floatEnable": true,
- "suggest.selection": "none",
- "suggest.preferCompleteThanJumpPlaceholder": false,
- "suggest.enablePreselect": false,
- "suggest.detailField": "abbr",
- "suggest.triggerAfterInsertEnter": false,
- "suggest.triggerCompletionWait": 150,
- "suggest.maxCompleteItemCount": 15,
- "suggest.noselect": true,
- "suggest.localityBonus": true,
- "suggest.snippetIndicator": "►",
- "suggest.floatConfig": {
-  "border": true,
-  "rounded": true
- },
- "python.analysis.indexing": true,
- "python.analysis.typeCheckingMode": "basic",
- "signature.target": "float",
- "diagnostic.enable": true,
- "diagnostic.messageTarget": "float",
- "json.format.keepLines": true,
- "ruff.enable": true,
- "ruff.lineLength": 320,
- "python.formatting.provider": "ruff",
- "codeLens.enable": false,
- "hover.target": "float",
- "Lua.completion.callSnippet": "Replace",
- "snippets.textmateSnippetsRoots": [
-  "~/.vim/coc-snippets"
- ],
- "clangd.arguments": [
-  "--inlay-hints=false",
-  "--compile-commands-dir=build",
-  "--compile_args_from=filesystem",
-  "--all-scopes-completion",
-  "--background-index",
-  "--clang-tidy",
-  "--cross-file-rename",
-  "--completion-parse=always",
-  "--completion-style=detailed",
-  "--function-arg-placeholders",
-  "--header-insertion-decorators",
-  "--header-insertion=never",
-  "--limit-results=0",
-  "-j=6"
- ],
- "inlayHint.refreshOnInsertMode": false,
- "snippets.ultisnips.pythonPrompt": false,
- "explorer.width": 30,
- "explorer.buffer.root.template": "[icon & 1] OPEN EDITORS",
- "explorer.file.root.template": "[icon & 1] PROJECT ([root])",
- "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
- "explorer.file.autoReveal": false,
- "explorer.icon.enableVimDevicons": true,
- "explorer.icon.enableNerdfont": true,
- "explorer.previewAction.onHover": false,
- "explorer.file.reveal.auto": true,
- "diagnostic.virtualText": true,
- "diagnostic.checkCurrentLine": true,
- "inlayHint.enable": true,
- "inlayHint.enableParameter": true,
- "signature.enable": true,
- "outline.autoPreview": true,
- "coc.preferences.bracketEnterImprove": true,
- "notification.statusLineProgress": true,
- "notification.disabledProgressSources": [
-  "*"
- ],
- "explorer.keyMappings": {
-  "x": "open:vsplit",
-  "mm": "rename",
-  "mc": "copyFile",
-  "C": "copyFile",
-  "md": "delete",
-  "D": "delete",
-  "ma": "addFile",
-  "mA": "addDirectory"
- },
- "languageserver": {
-  "terraform": {
-   "command": "terraform-ls",
-   "args": [
-    "serve"
-   ],
-   "filetypes": [
-    "terraform",
-    "tf",
-    "terraform-vars"
-   ],
-   "initializationOptions": { },
-   "settings": { }
+  "list.insertMappings": {
+    "<C-n>": "do:previewdown",
+    "<C-p>": "do:previewup"
+  },
+  "list.normalMappings": {
+    "<C-n>": "do:previewdown",
+    "<C-p>": "do:previewup"
+  },
+  "outline.expandLevel": 0,
+  "outline.previewBorderRounded": true,
+  "suggest.floatEnable": true,
+  "suggest.selection": "none",
+  "suggest.preferCompleteThanJumpPlaceholder": false,
+  "suggest.enablePreselect": false,
+  "suggest.detailField": "abbr",
+  "suggest.triggerAfterInsertEnter": false,
+  "suggest.triggerCompletionWait": 150,
+  "suggest.maxCompleteItemCount": 10,
+  "suggest.noselect": true,
+  "suggest.localityBonus": true,
+  "suggest.snippetIndicator": "►",
+  "hover.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "highlight": "CocFloating",
+    "borderhighlight": "CocFloatBorder"
+  },
+
+  "suggest.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "highlight": "CocFloating",
+    "borderhighlight": "CocFloatBorder"
+  },
+
+  "diagnostic.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "highlight": "CocFloating",
+    "borderhighlight": "CocFloatBorder"
+  },
+
+  "signature.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "highlight": "CocFloating",
+    "borderhighlight": "CocFloatBorder"
+  },
+  "suggest.enablePreview": false,
+  "python.analysis.indexing": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "json.format.keepLines": true,
+  "ruff.enable": true,
+  "ruff.lineLength": 320,
+  "python.formatting.provider": "ruff",
+  "codeLens.enable": false,
+  "hover.target": "float",
+  "Lua.completion.callSnippet": "Replace",
+  "Lua.runtime.version": "Lua 5.5",
+  "Lua.diagnostics.globals": [
+    "Graphics"
+  ],
+
+  "signature.enable": true,
+  "signature.target": "float",
+
+
+  "snippets.textmateSnippetsRoots": [
+    "~/.vim/coc-snippets"
+  ],
+  "clangd.arguments": [
+    "--inlay-hints=false",
+    "--compile-commands-dir=build",
+    "--compile_args_from=filesystem",
+    "--all-scopes-completion",
+    "--background-index",
+    "--clang-tidy",
+    "--cross-file-rename",
+    "--completion-parse=always",
+    "--completion-style=detailed",
+    "--function-arg-placeholders",
+    "--header-insertion-decorators",
+    "--header-insertion=never",
+    "--limit-results=0",
+    "-j=6"
+  ],
+  "inlayHint.refreshOnInsertMode": false,
+  "snippets.ultisnips.pythonPrompt": false,
+  "explorer.width": 30,
+  "explorer.buffer.root.template": "[icon & 1] OPEN EDITORS",
+  "explorer.file.root.template": "[icon & 1] PROJECT ([root])",
+  "explorer.file.child.template": "[git | 2] [selection | clip | 1] [indent][icon | 1] [diagnosticError & 1][filename omitCenter 1][modified][readonly] [linkIcon & 1][link growRight 1 omitCenter 5]",
+  "explorer.file.autoReveal": false,
+  "explorer.icon.enableVimDevicons": true,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.file.reveal.auto": true,
+  "diagnostic.virtualText": false,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.enable": true,
+  "diagnostic.messageTarget": "float",
+  "inlayHint.enable": true,
+  "inlayHint.enableParameter": true,
+  "outline.autoPreview": true,
+  "coc.preferences.bracketEnterImprove": true,
+  "notification.statusLineProgress": true,
+  "notification.disabledProgressSources": [
+    "*"
+  ],
+  "explorer.keyMappings": {
+    "x": "open:vsplit",
+    "mm": "rename",
+    "mc": "copyFile",
+    "C": "copyFile",
+    "md": "delete",
+    "D": "delete",
+    "ma": "addFile",
+    "mA": "addDirectory"
+  },
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": [
+        "serve"
+      ],
+      "filetypes": [
+        "terraform",
+        "tf",
+        "terraform-vars"
+      ],
+      "initializationOptions": { },
+      "settings": { }
+    }
   }
- }
 }

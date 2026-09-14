@@ -34,6 +34,7 @@ nnoremap <silent> <leader>a <Plug>(coc-codeaction)
  autocmd FileType c,cpp,h,hpp setlocal commentstring=//\ %s
  autocmd FileType go setlocal commentstring=//\ %s
  autocmd FileType python,cmake setlocal commentstring=#\ %s
+ autocmd FileType lua setlocal commentstring=--\ %s
  autocmd FileType terraform setlocal commentstring=#\ %s
  autocmd FileType vim setlocal commentstring=\"\ %s
 nmap <leader>ca  <Plug>(coc-codeaction-cursor)
@@ -76,6 +77,20 @@ function! ShowDocumentation()
  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
  endif
+set termguicolors
+hi CocFloating guifg=#F8F8F2 guibg=#232526
+hi CocFloatBorder guifg=#F92672 guibg=#1B1D1E ctermfg=161 ctermbg=233
+
+" Popup contents
+hi! CocFloating guifg=#F8F8F2 guibg=#3E3D32
+hi! CocFloating ctermfg=252 ctermbg=237
+
+" Popup border
+hi! CocFloatBorder guifg=#66D9EF guibg=#3E3D32
+hi! CocFloatBorder ctermfg=81 ctermbg=237
+
+"hi CocFloatBorder guifg=#465457 guibg=#232526
+
 
  "From the example configuration on github below here.
  "

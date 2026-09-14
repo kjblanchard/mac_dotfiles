@@ -22,22 +22,6 @@ endif
 let g:molokai_original = 1
 set background=dark
 colorscheme molokai
-" CoC popup colors — Molokai palette
-hi Pmenu           guifg=#F8F8F2 guibg=#1B1D1E
-hi PmenuSel        guifg=#A6E22E guibg=#49483E gui=bold
-hi PmenuSbar       guibg=#2D2E27
-hi PmenuThumb      guibg=#75715E
-hi CocFloating     guifg=#F8F8F2 guibg=#1B1D1E
-hi CocFloatBorder  guifg=#75715E guibg=#1B1D1E
-hi CocMenuSel      guifg=#A6E22E guibg=#49483E gui=bold
-hi CocErrorFloat   guifg=#F92672
-hi CocWarningFloat guifg=#FD971F
-hi CocInfoFloat    guifg=#66D9EF
-hi CocHintFloat    guifg=#AE81FF
-hi CocErrorSign    guifg=#F92672
-hi CocWarningSign  guifg=#FD971F
-hi CocInfoSign     guifg=#66D9EF
-hi CocHintSign     guifg=#AE81FF
 "Binds
 let mapleader = "\<Space>"
 noremap <Space> <Nop>
@@ -52,6 +36,8 @@ let g:airline_theme='molokai'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number, 2 is buffers, 3 is both
 let g:airline#extensions#tabline#show_buffers = 0 
+nmap <F5> :Dox<CR>
+nmap <F6> :DoxAuthor<CR>
 "mergetool
 if &diff
  map <leader>1 :diffget LOCAL<CR>
@@ -71,3 +57,5 @@ let $FZF_DEFAULT_OPTS="--preview 'bat --color=always --theme=Monokai Extended --
  \shift-up:preview-top,shift-down:preview-bottom,
  \alt-up:half-page-up,alt-down:half-page-down"
  "Scroll fzf windows windows properly
+
+
