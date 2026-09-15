@@ -1,0 +1,18 @@
+ncmpcpp_directory = "~/.config/ncmpcpp"
+
+mpd_host = "127.0.0.1"
+mpd_port = "6600"
+
+mpd_music_dir = "~/Music/mpd"
+
+playlist_display_mode = classic
+user_interface = classic
+header_visibility = yes
+statusbar_visibility = yes
+progressbar_look = "━━╸"
+song_list_format = "{$7%a - }{%t}|{$8%f}"
+
+autocenter_mode = yes
+centered_cursor = yes
+follow_now_playing_lyrics = no
+

@@ -5,7 +5,9 @@ alias pdb='python -m pdb'
 alias ls='ls -G'
 alias lg='lazygit'
 alias ss='tty-clock -ScBtC5'
-alias sfm='mpv https://ice5.somafm.com/groovesalad-128-aac'
+#alias sfm='mpv https://ice5.somafm.com/groovesalad-128-aac'
+alias sfm=ncmpcpp
+alias music=mpd ~/.config/mpd/personal.conf
 HISTSIZE=1000000
 SAVEHIST=1000000
 # Allow better history between tmux panes/windows
